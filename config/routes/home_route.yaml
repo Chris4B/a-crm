@@ -1,0 +1,5 @@
+home_index:
+  methods: GET
+  path: home
+  controller: App\Controller\HomeController::index
+
