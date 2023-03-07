@@ -1,0 +1,4 @@
+calendar_index:
+  methods: GET
+  path: calendar/{id?}
+  controller: App\Controller\CalendarController::index
