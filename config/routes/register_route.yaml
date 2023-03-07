@@ -1,0 +1,4 @@
+register_index:
+  methods: GET
+  path: register
+  controller: App\Controller\RegisterController::index
