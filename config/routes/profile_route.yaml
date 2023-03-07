@@ -1,0 +1,4 @@
+profile_index:
+  path: profile
+  methods: GET
+  controller: App\Controller\ProfileController::index
