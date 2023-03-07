@@ -1,0 +1,4 @@
+login_index:
+  methods: GET
+  path: login
+  controller: App\Controller\LoginController::login
