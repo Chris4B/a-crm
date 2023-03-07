@@ -1,0 +1,42 @@
+{% extends "loginbase.html.twig" %}
+{% block title %} A-CRM | Création de compte{% endblock %}
+{% block body %}
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg">
+                    <div class="p-4">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Demande de reinitalisation de mot de passe</h1>
+                        </div>
+
+                        <div class="text-center">
+                            <p class=" text-gray-900 mb-4">Nous vous enverrons un lien à cette adresse email</p>
+                        </div>
+
+                        <form class="user">
+
+                            <div class="form-group">
+                                <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                       placeholder="Addresse Email">
+                            </div>
+
+                            <button type="submit" class="btn btn-secondary btn-user btn-block">
+                                Envoyer votre demande
+                            </button>
+
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascript%}
+
+{% endblock %}

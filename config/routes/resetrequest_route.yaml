@@ -1,0 +1,5 @@
+resetrequest_index:
+  methods: GET
+  path: reset-password-request
+  controller: App\Controller\ResetPasswordController::index
+
