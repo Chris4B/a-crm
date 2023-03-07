@@ -1,4 +1,4 @@
 profile_index:
-  path: profile
+  path: profile/{id?}
   methods: GET
   controller: App\Controller\ProfileController::index

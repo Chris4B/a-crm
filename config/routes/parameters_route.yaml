@@ -1,0 +1,4 @@
+parameters_index:
+  methods: GET
+  path: settings
+  controller: App\Controller\ParametersController::index
