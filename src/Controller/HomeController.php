@@ -10,6 +10,6 @@ class HomeController extends AbstractController
 {
     public function index():Response
     {
-        return $this->render("boards/index.html.twig");
+        return $this->render("boards/home.html.twig");
     }
 }

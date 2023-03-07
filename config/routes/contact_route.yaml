@@ -1,0 +1,4 @@
+contact_index:
+  path: contacts
+  methods: GET
+  controller: App\Controller\ContactController::index
