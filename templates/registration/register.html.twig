@@ -1,0 +1,83 @@
+{% extends 'loginbase.html.twig' %}
+
+{% block title %} A-CRM | Création de compte{% endblock %}
+
+{% block body %}
+<div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+            <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+            <div class="col-lg-7">
+                <div class="p-5">
+                    <div class="text-center">
+                        <h1 class="h4 text-gray-900 mb-4">Création de compte</h1>
+                    </div>
+                    <form class="user" method="POST">
+
+                        {{ form_start(registrationForm) }}
+                        {% set formErrors = registrationForm.vars.errors.form.getErrors(true) %}
+
+                        {# If there are errors in the form, display them in this unorganized list #}
+                        {% if formErrors|length %}
+                            <ul class="alert-danger">
+                                {% for error in formErrors %}
+                                    <li>{{ error.message }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+{#                        {% if form_errors(registrationForm) %}#}
+{#                        <div class="alert alert-danger">#}
+{#                            {{ form_errors(registrationForm) }}#}
+{#                        </div>#}
+{#                        {% endif %}#}
+
+
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                {{ form_widget(registrationForm.firstname) }}
+
+                            </div>
+                            <div class="col-sm-6">
+                                {{ form_widget(registrationForm.lastname) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form_widget(registrationForm.email) }}
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                {{ form_widget(registrationForm.plainPassword) }}
+                            </div>
+
+                        </div>
+{#                        <div class="form-group">#}
+{#                            <div class="custom-control custom-checkbox small">#}
+{#                                <input type="checkbox" class="custom-control-input" id="customCheck" name="_remember_me">#}
+{#                                <label class="custom-control-label" for="customCheck">Se souvenir de moi</label>#}
+{#                            </div>#}
+{#                        </div>#}
+                        <div class="form-group form-check row">
+                            {{ form_row(registrationForm.agreeTerms) }}
+                        </div>
+
+                        <button type="submit" class="btn btn-secondary btn-user btn-block">
+                            S'enregistrer
+                        </button>
+
+                        {{ form_end(registrationForm) }}
+                    </form>
+                    <hr>
+                    <div class="text-center">
+                        <a class="small" href="{{ path('login') }}">Déjà un utilisateur? Connectez-vous!</a>
+                    </div>
+                    <div class="text-center">
+                        <a class="small" href="">Politique de confidentialité!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
