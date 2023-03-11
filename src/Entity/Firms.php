@@ -32,15 +32,13 @@ class Firms
     private ?string $siret = null;
 
     #[ORM\Column]
-<<<<<<< HEAD
-=======
+
     private ?\DateTimeImmutable $created_at;
 
     public function __construct()
     {
         $this->created_at = new \DateTimeImmutable();
     }
->>>>>>> fixtures
 
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $country = null;
