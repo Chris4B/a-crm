@@ -38,17 +38,17 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $lastname = null;
 
     #[ORM\Column(length: 100, nullable: true)]
-    private ?string $phone_number = null;
+    private ?string $number = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $created_at = null;
+    private ?\DateTimeImmutable $created_at ;
 
     public function __construct()
     {
-        $this->created_at = new \DateTimeImmutable("now");
+        $this->created_at = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -145,14 +145,14 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getPhoneNumber(): ?string
+    public function getNumber(): ?string
     {
-        return $this->phone_number;
+        return $this->number;
     }
 
-    public function setPhoneNumber(?string $phone_number): self
+    public function setNumber(?string $number): self
     {
-        $this->phone_number = $phone_number;
+        $this->number = $number;
 
         return $this;
     }
