@@ -34,6 +34,15 @@ class Contacts
     #[ORM\Column(length: 255)]
     private ?string $phone_number = null;
 
+    #[ORM\Column]
+    private ?\DateTimeImmutable $created_at;
+
+
+    public function __construct()
+    {
+        $this->created_at = new \DateTimeImmutable();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,12 +62,12 @@ class Contacts
 
     public function getLastname(): ?string
     {
-        return $this->lastname;
+        return $this->last_name;
     }
 
-    public function setLastname(string $lastname): self
+    public function setLastname(string $last_name): self
     {
-        $this->lastname = $lastname;
+        $this->last_name = $last_name;
 
         return $this;
     }
@@ -119,6 +128,18 @@ class Contacts
     public function setPhoneNumber(string $phone_number): self
     {
         $this->phone_number = $phone_number;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $created_at): self
+    {
+        $this->created_at = $created_at;
 
         return $this;
     }
