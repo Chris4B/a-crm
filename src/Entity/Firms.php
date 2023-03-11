@@ -32,7 +32,11 @@ class Firms
     private ?string $siret = null;
 
     #[ORM\Column]
+
     private ?\DateTimeImmutable $created_at = null;
+
+    #[ORM\Column(length: 50, nullable: true)]
+    private ?string $country = null;
 
     public function getId(): ?int
     {
@@ -119,6 +123,18 @@ class Firms
     public function setCreatedAt(\DateTimeImmutable $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?string $country): self
+    {
+        $this->country = $country;
 
         return $this;
     }
