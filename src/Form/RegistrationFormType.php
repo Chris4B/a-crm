@@ -26,10 +26,10 @@ class RegistrationFormType extends AbstractType
                     'placeholder'=>'Prénom'
                 ],
                 'label'=>' ',
-                'constraints' => [
-                    new Regex('/d+/',
-                        " Les champs 'Nom' et 'Prénom' ne doivent contenir que des caractères alphabétiques")
-               ],
+//                'constraints' => [
+//                    new Regex('/d+/',
+//                        " Les champs 'Nom' et 'Prénom' ne doivent contenir que des caractères alphabétiques")
+//               ],
             ])
             ->add('lastname', TextType::class,[
                 'attr'=>[
