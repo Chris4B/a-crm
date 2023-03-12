@@ -2555,7 +2555,7 @@ calendar:
   label: Calendar
   search:
     terms:
-      - calendar-o
+      - salendar-o
       - date
       - event
       - schedule
@@ -2576,7 +2576,7 @@ calendar-alt:
   label: Alternate Calendar
   search:
     terms:
-      - calendar
+      - salendar
       - date
       - event
       - schedule
@@ -2644,7 +2644,7 @@ calendar-minus:
   label: Calendar Minus
   search:
     terms:
-      - calendar
+      - salendar
       - date
       - delete
       - event
@@ -2667,7 +2667,7 @@ calendar-plus:
   search:
     terms:
       - add
-      - calendar
+      - salendar
       - create
       - date
       - event
@@ -2690,7 +2690,7 @@ calendar-times:
   search:
     terms:
       - archive
-      - calendar
+      - salendar
       - date
       - delete
       - event

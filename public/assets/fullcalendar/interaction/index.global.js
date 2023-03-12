@@ -1361,7 +1361,7 @@ FullCalendar.Interaction = (function (exports, core, internal) {
                         view: initialView,
                     });
                     if (validMutation) {
-                        // dropped within same calendar
+                        // dropped within same salendar
                         if (receivingContext === initialContext) {
                             let updatedEventApi = new internal.EventImpl(initialContext, mutatedRelevantEvents.defs[eventDef.defId], eventInstance ? mutatedRelevantEvents.instances[eventInstance.instanceId] : null);
                             initialContext.dispatch({
@@ -1385,7 +1385,7 @@ FullCalendar.Interaction = (function (exports, core, internal) {
                             }
                             initialContext.emitter.trigger('eventDrop', Object.assign(Object.assign(Object.assign({}, eventChangeArg), transformed), { el: ev.subjectEl, delta: validMutation.datesDelta, jsEvent: ev.origEvent, view: initialView }));
                             initialContext.emitter.trigger('eventChange', eventChangeArg);
-                            // dropped in different calendar
+                            // dropped in different salendar
                         }
                         else if (receivingContext) {
                             let eventRemoveArg = {
@@ -1459,9 +1459,9 @@ FullCalendar.Interaction = (function (exports, core, internal) {
         displayDrag(nextContext, state) {
             let initialContext = this.component.context;
             let prevContext = this.receivingContext;
-            // does the previous calendar need to be cleared?
+            // does the previous salendar need to be cleared?
             if (prevContext && prevContext !== nextContext) {
-                // does the initial calendar need to be cleared?
+                // does the initial salendar need to be cleared?
                 // if so, don't clear all the way. we still need to to hide the affectedEvents
                 if (prevContext === initialContext) {
                     prevContext.dispatch({
@@ -1472,7 +1472,7 @@ FullCalendar.Interaction = (function (exports, core, internal) {
                             isEvent: true,
                         },
                     });
-                    // completely clear the old calendar if it wasn't the initial
+                    // completely clear the old salendar if it wasn't the initial
                 }
                 else {
                     prevContext.dispatch({ type: 'UNSET_EVENT_DRAG' });
@@ -1488,7 +1488,7 @@ FullCalendar.Interaction = (function (exports, core, internal) {
             if (receivingContext) {
                 receivingContext.dispatch({ type: 'UNSET_EVENT_DRAG' });
             }
-            // the initial calendar might have an dummy drag state from displayDrag
+            // the initial salendar might have an dummy drag state from displayDrag
             if (initialCalendar !== receivingContext) {
                 initialCalendar.dispatch({ type: 'UNSET_EVENT_DRAG' });
             }
@@ -1784,7 +1784,7 @@ FullCalendar.Interaction = (function (exports, core, internal) {
     /*
     Given an already instantiated draggable object for one-or-more elements,
     Interprets any dragging as an attempt to drag an events that lives outside
-    of a calendar onto a calendar.
+    of a salendar onto a salendar.
     */
     class ExternalElementDragging {
         constructor(dragging, suppliedDragMeta) {
@@ -1951,8 +1951,8 @@ FullCalendar.Interaction = (function (exports, core, internal) {
     }
 
     /*
-    Makes an element (that is *external* to any calendar) draggable.
-    Can pass in data that determines how an event will be created when dropped onto a calendar.
+    Makes an element (that is *external* to any salendar) draggable.
+    Can pass in data that determines how an event will be created when dropped onto a salendar.
     Leverages FullCalendar's internal drag-n-drop functionality WITHOUT a third-party drag system.
     */
     class ExternalDraggable {

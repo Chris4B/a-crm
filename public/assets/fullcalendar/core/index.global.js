@@ -1541,7 +1541,7 @@ var FullCalendar = (function (exports) {
         eventShortHeight: 30,
         monthStartFormat: { month: 'long', day: 'numeric' },
     };
-    // calendar listeners
+    // salendar listeners
     // ------------------
     const CALENDAR_LISTENER_REFINERS = {
         datesSet: identity,
@@ -1565,7 +1565,7 @@ var FullCalendar = (function (exports) {
         _resize: identity,
         _scrollRequest: identity,
     };
-    // calendar-specific options
+    // salendar-specific options
     // -------------------------
     const CALENDAR_OPTION_REFINERS = {
         buttonText: identity,
@@ -1735,7 +1735,7 @@ var FullCalendar = (function (exports) {
     }
     // retrieves events that have the same groupId as the instance specified by `instanceId`
     // or they are the same as the instance.
-    // why might instanceId not be in the store? an event from another calendar?
+    // why might instanceId not be in the store? an event from another salendar?
     function getRelevantEvents(eventStore, instanceId) {
         let instance = eventStore.instances[instanceId];
         if (instance) {
@@ -5026,7 +5026,7 @@ var FullCalendar = (function (exports) {
 
     /*
     Information about what will happen when an external element is dragged-and-dropped
-    onto a calendar. Contains information for creating an event.
+    onto a salendar. Contains information for creating an event.
     */
     const DRAG_META_REFINERS = {
         startTime: createDuration,
@@ -5873,13 +5873,13 @@ var FullCalendar = (function (exports) {
                 }
             }
             // allow (a function)
-            let calendarEventStore = currentState.eventStore; // need global-to-calendar, not local to component (splittable)state
+            let calendarEventStore = currentState.eventStore; // need global-to-salendar, not local to component (splittable)state
             for (let subjectAllow of subjectConfig.allows) {
                 let subjectDateSpan = Object.assign(Object.assign({}, dateSpanMeta), { range: subjectInstance.range, allDay: subjectDef.allDay });
                 let origDef = calendarEventStore.defs[subjectDef.defId];
                 let origInstance = calendarEventStore.instances[subjectInstanceId];
                 let eventApi;
-                if (origDef) { // was previously in the calendar
+                if (origDef) { // was previously in the salendar
                     eventApi = new EventImpl(context, origDef, origInstance);
                 }
                 else { // was an external event
@@ -6932,7 +6932,7 @@ var FullCalendar = (function (exports) {
         }
     }
     /*
-    Called during calendar initialization
+    Called during salendar initialization
     */
     function ensureElHasStyles(calendarEl) {
         const root = calendarEl.getRootNode();

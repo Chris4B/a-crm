@@ -27,6 +27,10 @@ window.onload = () =>{
         dragScroll:'true',
 
     })
+   fetch ('http://a-crm.test/calendar/')
+        .then(response =>response.json())
+        .then(data =>console.log(data))
+        .catch(error => console.error(error))
 
     calendar.render()
 }

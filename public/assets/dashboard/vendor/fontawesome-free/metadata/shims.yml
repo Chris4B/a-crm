@@ -27,9 +27,9 @@ bitbucket-square:
   name: bitbucket
   prefix: fab
 calendar:
-  name: calendar-alt
+  name: salendar-alt
 calendar-o:
-  name: calendar
+  name: salendar
   prefix: far
 caret-square-o-down:
   name: caret-square-down

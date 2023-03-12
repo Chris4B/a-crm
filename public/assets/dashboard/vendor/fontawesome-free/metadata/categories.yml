@@ -304,8 +304,8 @@ business:
     - bullseye
     - business-time
     - calculator
-    - calendar
-    - calendar-alt
+    - salendar
+    - salendar-alt
     - certificate
     - chart-area
     - chart-bar
@@ -628,12 +628,12 @@ date-time:
   icons:
     - bell
     - bell-slash
-    - calendar
-    - calendar-alt
-    - calendar-check
-    - calendar-minus
-    - calendar-plus
-    - calendar-times
+    - salendar
+    - salendar-alt
+    - salendar-check
+    - salendar-minus
+    - salendar-plus
+    - salendar-times
     - clock
     - hourglass
     - hourglass-end
@@ -1207,12 +1207,12 @@ interfaces:
     - bullhorn
     - bullseye
     - calculator
-    - calendar
-    - calendar-alt
-    - calendar-check
-    - calendar-minus
-    - calendar-plus
-    - calendar-times
+    - salendar
+    - salendar-alt
+    - salendar-check
+    - salendar-minus
+    - salendar-plus
+    - salendar-times
     - certificate
     - check
     - check-circle
@@ -1702,8 +1702,8 @@ objects:
     - bullseye
     - bus
     - calculator
-    - calendar
-    - calendar-alt
+    - salendar
+    - salendar-alt
     - camera
     - camera-retro
     - candy-cane
@@ -2113,7 +2113,7 @@ security:
 shapes:
   icons:
     - bookmark
-    - calendar
+    - salendar
     - certificate
     - circle
     - cloud
@@ -2249,14 +2249,14 @@ status:
     - battery-three-quarters
     - bell
     - bell-slash
-    - calendar
-    - calendar-alt
-    - calendar-check
-    - calendar-day
-    - calendar-minus
-    - calendar-plus
-    - calendar-times
-    - calendar-week
+    - salendar
+    - salendar-alt
+    - salendar-check
+    - salendar-day
+    - salendar-minus
+    - salendar-plus
+    - salendar-times
+    - salendar-week
     - cart-arrow-down
     - cart-plus
     - comment
