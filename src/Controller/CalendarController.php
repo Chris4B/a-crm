@@ -17,31 +17,62 @@ class CalendarController extends AbstractController
     public function index(CalendarRepository $calendarRepository): Response
     {
 
-        $events = $calendarRepository->findAll();
-
-        $rdvs = [];
-        foreach ($events as $event){
-            $rdvs=[
-                'id'=> $event->getId(),
-                'start'=> $event->getStart()->format('Y-m-d H:i:s'),
-                'end'=> $event->getStart()->format('Y-m-d H:i:s'),
-                'title'=> $event->getTitle(),
-                'description'=> $event->getDescription(),
-                'backgroundColor'=> $event->getBackgroundColor(),
-                'borderColor'=> $event->getBorderColor(),
-                'textColor'=> $event->getTextColor(),
-//                'allDay'=> $event->getAllDay(),
-            ];
-
-            $data= json_encode($rdvs);
-        }
+//        $events = $calendarRepository->findAll();
+//
+//        $rdvs = [];
+//        foreach ($events as $event){
+//            $rdvs=[
+//                'id'=> $event->getId(),
+//                'start'=> $event->getStart()->format('Y-m-d H:i:s'),
+//                'end'=> $event->getStart()->format('Y-m-d H:i:s'),
+//                'title'=> $event->getTitle(),
+//                'description'=> $event->getDescription(),
+//                'backgroundColor'=> $event->getBackgroundColor(),
+//                'borderColor'=> $event->getBorderColor(),
+//                'textColor'=> $event->getTextColor(),
+////                'allDay'=> $event->getAllDay(),
+//            ];
+//
+//            $data= json_encode($rdvs);
+//        }
 
 
 
         return $this->render('salendar/index.html.twig',[
-                'data' => $rdvs
+//                'data' => $rdvs
         ]);
     }
+
+
+    #[Route('/api', name: 'api', methods: ['GET'])]
+    public function geteventsList(CalendarRepository $calendarRepository)
+    {
+        $events = $calendarRepository->findAll();
+
+        $allRdvs = [];
+        foreach ($events as $event) {
+            $rdvs = [
+                'id' => $event->getId(),
+                'start' => $event->getStart()->format('Y-m-d H:i:s'),
+                'end' => $event->getStart()->format('Y-m-d H:i:s'),
+                'title' => $event->getTitle(),
+                'description' => $event->getDescription(),
+                'backgroundColor' => $event->getBackgroundColor(),
+                'borderColor' => $event->getBorderColor(),
+                'textColor' => $event->getTextColor(),
+//                'allDay'=> $event->getAllDay(),
+            ];
+            array_push($allRdvs, $rdvs);
+        }
+
+//            $data= json_encode($rdvs);
+        return $this->json($allRdvs);
+    }
+
+
+
+
+
 
     #[Route('/new', name: 'app_calendar_new', methods: ['GET', 'POST'])]
     public function new(Request $request, CalendarRepository $calendarRepository): Response

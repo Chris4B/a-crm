@@ -25,12 +25,37 @@ window.onload = () =>{
         editable: 'true',
         eventResizableFromStart: 'true',
         dragScroll:'true',
+        eventSource:[
+            {
+                url: 'http://a-crm.test/calendar/api'
+            }
+        ]
 
     })
-   fetch ('http://a-crm.test/calendar/')
+   fetch ('http://a-crm.test/calendar/api')
         .then(response =>response.json())
-        .then(data =>console.log(data))
+        .then(data =>{
+            data.forEach(event =>{
+                calendar.addEvent({
+                    id: event.id,
+                    title: event.title,
+                    start: event.start,
+                    end: event.end,
+                    description: event.description,
+                    backgroundColor: event.backgroundColor,
+                    borderColor: event.borderColor,
+                    textColor: event.textColor,
+                })
+            })
+        })
+       .then(data =>calendar.addEvent(data))
         .catch(error => console.error(error))
-
+    calendar.on('eventchange',(e)=>{
+        console.log(e);
+    })
     calendar.render()
+
+
+
+
 }
