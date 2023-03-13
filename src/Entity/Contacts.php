@@ -14,10 +14,10 @@ class Contacts
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $first_name = null;
+    private ?string $firstname = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $last_name = null;
+    private ?string $lastname = null;
 
     #[ORM\Column(length: 100)]
     private ?string $email = null;
@@ -26,21 +26,21 @@ class Contacts
     private ?string $address = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $zip_code = null;
+    private ?string $zipcode = null;
 
     #[ORM\Column(length: 255)]
     private ?string $country = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $phone_number = null;
+    private ?string $number = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $created_at;
+    private ?\DateTimeImmutable $createdAt;
 
 
     public function __construct()
     {
-        $this->created_at = new \DateTimeImmutable();
+        $this->createdAt = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -50,24 +50,24 @@ class Contacts
 
     public function getFirstName(): ?string
     {
-        return $this->first_name;
+        return $this->firstname;
     }
 
-    public function setFirstName(string $first_name): self
+    public function setFirstName(string $firstname): self
     {
-        $this->first_name = $first_name;
+        $this->firstname = $firstname;
 
         return $this;
     }
 
     public function getLastname(): ?string
     {
-        return $this->last_name;
+        return $this->lastname;
     }
 
-    public function setLastname(string $last_name): self
+    public function setLastname(string $lastname): self
     {
-        $this->last_name = $last_name;
+        $this->lastname = $lastname;
 
         return $this;
     }
@@ -98,12 +98,12 @@ class Contacts
 
     public function getZipCode(): ?string
     {
-        return $this->zip_code;
+        return $this->zipcode;
     }
 
-    public function setZipCode(string $zip_code): self
+    public function setZipCode(string $zipcode): self
     {
-        $this->zip_code = $zip_code;
+        $this->zipcode = $zipcode;
 
         return $this;
     }
@@ -122,24 +122,24 @@ class Contacts
 
     public function getPhoneNumber(): ?string
     {
-        return $this->phone_number;
+        return $this->number;
     }
 
-    public function setPhoneNumber(string $phone_number): self
+    public function setPhoneNumber(string $number): self
     {
-        $this->phone_number = $phone_number;
+        $this->number = $number;
 
         return $this;
     }
 
     public function getCreatedAt(): ?\DateTimeImmutable
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $created_at): self
+    public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
-        $this->created_at = $created_at;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
