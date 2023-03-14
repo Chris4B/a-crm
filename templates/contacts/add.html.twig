@@ -1,0 +1,91 @@
+{% extends "base.html.twig" %}
+{% block title %} A-CRM | Nouveau-Contact{% endblock %}
+{% block body %}
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-4 text-gray-800">Ajouter un contact</h1>
+
+       <!-- ~~~~~~~~~~ addContactForm ~~~~~~~~~~ -->
+
+        {{ form_start(new_contact) }}
+
+        <div class="mb-3">
+            {{ form_widget(new_contact.lastname) }}
+        </div>
+        <div class="mb-3">
+            {{ form_widget(new_contact.firstname) }}
+        </div>
+        <div class="mb-3">
+            {{ form_widget(new_contact.email) }}
+        </div>
+        <div class="mb-3">
+            {{ form_widget(new_contact.number) }}
+        </div>
+        <div class="mb-3">
+            {{ form_widget(new_contact.address) }}
+        </div>
+        <div class="mb-3">
+            {{ form_widget(new_contact.zipcode) }}
+        </div>
+        <div class="mb-3">
+            {{ form_widget(new_contact.country) }}
+        </div>
+        <button type="submit" class="btn btn-outline-dark">Sauvegarder</button>
+        {{ form_end(new_contact) }}
+
+
+
+
+
+{#        <form  action="{{ path('contact_new') }}" method="POST">#}
+{#            <div class="mb-3">#}
+{#                <label for="last_name" class="form-label">Prénom</label>#}
+{#                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Prénom">#}
+{#            </div>#}
+{#            <div class="mb-3">#}
+{#                <label for="first_name" class="form-label">Nom</label>#}
+{#                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Nom">#}
+{#            </div>#}
+{#            <div class="mb-3">#}
+{#                <label for="email" class="form-label">Email</label>#}
+{#                <input type="email" class="form-control" id="email" name ="email" placeholder="Email">#}
+{#            </div>#}
+{#            <div class="mb-3">#}
+{#                <label for="address" class="form-label">Adresse</label>#}
+{#                <input type="text" class="form-control" id="address" name="address" placeholder="Addresse">#}
+{#            </div>#}
+{#            <div class="mb-3">#}
+{#                <label for="country" class="form-label">Pays</label>#}
+{#                <input type="text" class="form-control" id="country" name="country" placeholder="Pays">#}
+{#            </div>#}
+{#            <div class="mb-3">#}
+{#                <label for="number" class="form-label">Numéro de Téléphone</label>#}
+{#                <input type="text" class="form-control" id="number" name="number" placeholder="Numéro de téléphone">#}
+{#            </div>#}
+{#            <div class="mb-3">#}
+{#                <label for="zip_code" class="form-label">Code Region</label>#}
+{#                <input type="text" class="form-control" id="zip_code" name="zip_code" placeholder="code_zip">#}
+{#            </div>#}
+{#            <div class="mb-3">#}
+{#                <button type="Submit" class="btn btn-outline-dark mt-4">#}
+{#                    <span class="mx-2 ">SAUVEGARDER</span>#}
+{#                    <i class="fa fa-plus"></i>#}
+{#                </button>#}
+{#            </div>#}
+
+
+{#        </form>#}
+
+    </div>
+    <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+{% endblock %}
+
+{% block javascript%}
+
+{% endblock %}

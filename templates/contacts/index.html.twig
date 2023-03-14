@@ -8,6 +8,15 @@
         <!-- Page Heading -->
         <h1 class="h3 mb-4 text-gray-800">Contacts</h1>
 
+
+{#        {% for message in app.flashes('success') %}#}
+
+{#            <div class="alert alert-success">#}
+{#                {{ message }}#}
+{#            </div>#}
+
+{#        {% endfor %}#}
+
         <!-- Contacts Table-->
         <div class="card shadow mb-4">
 
@@ -22,20 +31,10 @@
                             <th>Email</th>
                             <th>Téléphone</th>
                             <th>Date de création</th>
+                            <th>Action</th>
 
                         </tr>
                         </thead>
-                        <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nom</th>
-                            <th>Prénom</th>
-                            <th>Email</th>
-                            <th>Téléphone</th>
-                            <th>Date de création</th>
-
-                        </tr>
-                        </tfoot>
                         <tbody>
                         {% for contact in contacts %}
                             <tr>
@@ -43,8 +42,20 @@
                                 <td>{{ contact.lastname | capitalize }}</td>
                                 <td>{{ contact.firstname | capitalize}}</td>
                                 <td>{{ contact.email }}</td>
-                                <td>{{ contact.phonenumber }}</td>
+                                <td>{{ contact.number }}</td>
                                 <td>{{ contact.createdAt | date('d/m/Y')  }}</td>
+                                <td>
+                                    <a href="{{ path('contact_update', {'id': contact.id}) }}">
+                                        <button type="button" class="btn btn-outline-success">
+                                            <i class="fa fa-user-edit"></i>
+                                        </button>
+                                    </a>
+                                    <a href="{{ path('contact_delete', {'id':contact.id}) }}">
+                                        <button type="button" class="btn btn-outline-danger">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </a>
+                                </td>
                             </tr>
                         {% endfor %}
                         </tbody>
@@ -52,9 +63,17 @@
 
 
 {#                     display navigation #}
-                    <div class="navigation d-flex justify-content-center dark">
+                    <div class="navigation d-flex justify-content-center  ">
                         {{ knp_pagination_render(contacts) }}
                     </div>
+
+                    <!-- ~~~~~~~~~~ button trigger addModal ~~~~~~~~~~ -->
+                    <div class="navigation d-flex justify-content-center dark mt-4">
+                        <a class="btn btn-outline-dark" href="{{ path('contact_new') }}" role="button">Ajouter</a>
+                    </div>
+
+
+
 
 {#                    {% else %}#}
 {#                        <h4> Il n' y a pas de contacts </h4>#}

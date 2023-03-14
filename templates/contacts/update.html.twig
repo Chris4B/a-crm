@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+{% block title %} A-CRM | Modification-Contact{% endblock %}
+{% block body %}
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-4 text-gray-800">Modifier un contact un contact</h1>
+
+       <!-- ~~~~~~~~~~ addContactForm ~~~~~~~~~~ -->
+
+        {{ form_start(contact) }}
+
+        <div class="mb-3">
+            {{ form_widget(contact.lastname) }}
+        </div>
+        <div class="mb-3">
+            {{ form_widget(contact.firstname) }}
+        </div>
+        <div class="mb-3">
+            {{ form_widget(contact.email) }}
+        </div>
+        <div class="mb-3">
+            {{ form_widget(contact.number) }}
+        </div>
+        <div class="mb-3">
+            {{ form_widget(contact.address) }}
+        </div>
+        <div class="mb-3">
+            {{ form_widget(contact.zipcode) }}
+        </div>
+        <div class="mb-3">
+            {{ form_widget(contact.country) }}
+        </div>
+        <button type="submit" class="btn btn-outline-dark">Modifier</button>
+        {{ form_end(contact) }}
+
+
+
+    </div>
+    <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+{% endblock %}
+
+{% block javascript%}
+
+{% endblock %}

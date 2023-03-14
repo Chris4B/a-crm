@@ -120,12 +120,12 @@ class Contacts
         return $this;
     }
 
-    public function getPhoneNumber(): ?string
+    public function getNumber(): ?string
     {
         return $this->number;
     }
 
-    public function setPhoneNumber(string $number): self
+    public function setNumber(string $number): self
     {
         $this->number = $number;
 

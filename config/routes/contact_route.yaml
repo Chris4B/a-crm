@@ -2,3 +2,22 @@ contact_index:
   path: contacts
   methods: GET
   controller: App\Controller\ContactController::index
+
+contact_new:
+  path: contacts/nouveau
+  methods: ['GET','POST']
+  controller: App\Controller\ContactController::newContact
+
+contact_update:
+  path: contact/modifier/{id}
+  methods: ['GET','POST']
+  controller: App\Controller\ContactController::updateContact
+  requirements:
+    id: \d+
+
+contact_delete:
+  path: contact/supprimer/{id}
+  methods: ['GET']
+  controller: App\Controller\ContactController::deleteContact
+  requirements:
+    id: \d+
