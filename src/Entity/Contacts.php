@@ -37,6 +37,12 @@ class Contacts
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt;
 
+    #[ORM\ManyToOne(inversedBy: 'contacts')]
+    private ?Firms $id_firm = null;
+
+    #[ORM\OneToOne(mappedBy: 'idcontact', cascade: ['persist', 'remove'])]
+    private ?Users $users = null;
+
 
     public function __construct()
     {
@@ -140,6 +146,35 @@ class Contacts
     public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getIdFirm(): ?Firms
+    {
+        return $this->id_firm;
+    }
+
+    public function setIdFirm(?Firms $id_firm): self
+    {
+        $this->id_firm = $id_firm;
+
+        return $this;
+    }
+
+    public function getUsers(): ?Users
+    {
+        return $this->users;
+    }
+
+    public function setUsers(Users $users): self
+    {
+        // set the owning side of the relation if necessary
+        if ($users->getIdcontact() !== $this) {
+            $users->setIdcontact($this);
+        }
+
+        $this->users = $users;
 
         return $this;
     }

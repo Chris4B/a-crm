@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Firms{% endblock %}
+
+{% block body %}
+    <h1>Firms</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ firm.id }}</td>
+            </tr>
+            <tr>
+                <th>Firm_name</th>
+                <td>{{ firm.firmName }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ firm.address }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ firm.email }}</td>
+            </tr>
+            <tr>
+                <th>Zip_code</th>
+                <td>{{ firm.zipCode }}</td>
+            </tr>
+            <tr>
+                <th>Phone_number</th>
+                <td>{{ firm.phoneNumber }}</td>
+            </tr>
+            <tr>
+                <th>Siret</th>
+                <td>{{ firm.siret }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ firm.createdAt ? firm.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ firm.country }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_firms_index') }}">back to list</a>
+
+    <a href="{{ path('app_firms_edit', {'id': firm.id}) }}">edit</a>
+
+    {{ include('firms/_delete_form.html.twig') }}
+{% endblock %}

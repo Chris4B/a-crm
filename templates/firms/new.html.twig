@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}A-CRM | Créer une entreprise{% endblock %}
+{% dump(form)  %}
+{% block body %}
+    <div class="container-fluid">
+        <h1 class="h3 mb-4 text-gray-800">Ajouter une nouvelle Entreprise</h1>
+
+        {{ form_start(form) }}
+
+        <div class="mb-3">
+            {{ form_label(form.firm_name) }} :
+            {{ form_widget(form.firm_name) }}
+
+        </div>
+        <div class="mb-3">
+            {{ form_label(form.email) }} :
+            {{ form_widget(form.email) }}
+        </div>
+        <div class="mb-3">
+            {{ form_label(form.address) }} :
+            {{ form_widget(form.address) }}
+        </div>
+        <div class="mb-3">
+            {{ form_label(form.phone_number) }} :
+            {{ form_widget(form.phone_number) }}
+        </div>
+        <div class="mb-3">
+            {{ form_label(form.zip_code) }} :
+            {{ form_widget(form.zip_code) }}
+        </div>
+        <div class="mb-3">
+            {{ form_label(form.siret) }} :
+            {{ form_widget(form.siret) }}
+        </div>
+        <div class="mb-3">
+            {{ form_label(form.country) }} :
+            {{ form_widget(form.country) }}
+        </div>
+        <button type="submit" class="btn btn-outline-dark mt-4">Créer</button>
+        {{ form_end(form) }}
+
+
+    <a href="{{ path('firm_index') }}">Retour à la liste</a>
+
+
+    </div>
+    </div>
+
+{% endblock %}
+
+
+{% block javascript%}
+
+{% endblock %}

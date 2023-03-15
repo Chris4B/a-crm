@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} A | CRM - Liste des entreprises{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <h1 class="h3 mb-4 text-gray-800">Liste des entreprises</h1>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-dark table-hover" id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nom</th>
+                            <th>Addresse</th>
+                            <th>Email</th>
+                            <th>Code postal</th>
+                            <th>Numéro de téléphone</th>
+                            <th>Siret</th>
+                            <th>Date de création</th>
+                            <th>Pays</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for firm in firms %}
+                        <tr>
+                            <td>{{ firm.id }}</td>
+                            <td>{{ firm.firmName }}</td>
+                            <td>{{ firm.address }}</td>
+                            <td>{{ firm.email }}</td>
+                            <td>{{ firm.zipCode }}</td>
+                            <td>{{ firm.phoneNumber }}</td>
+                            <td>{{ firm.siret }}</td>
+                            <td>{{ firm.createdAt ? firm.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>{{ firm.country }}</td>
+                            <td>
+                                <a href="{{ path('firm_update', {'id': firm.id}) }}">
+                                    <button type="button" class="btn btn-outline-success">
+                                        <i class="fa fa-user-edit"></i>
+                                    </button>
+                                </a>
+                                <a href="{{ path('firm_delete', {'id': firm.id}) }}">
+                                    <button type="button" class="btn btn-outline-danger">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="10">Pas d'enregistremenents</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <div class="navigation d-flex justify-content-center  ">
+                    {{ knp_pagination_render(firms) }}
+                </div>
+
+                <!-- ~~~~~~~~~~ Add button  ~~~~~~~~~~ -->
+                <div class="navigation d-flex justify-content-center dark mt-4">
+                    <a class="btn btn-outline-dark" href="{{ path('firm_new') }}" role="button">Ajouter</a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+
+
+</div>
+</div>
+{% endblock %}

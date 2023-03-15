@@ -1,4 +1,4 @@
 calendar_index:
   methods: GET
-  path: evenements
+  path: calendrier
   controller: App\Controller\EventsController::index

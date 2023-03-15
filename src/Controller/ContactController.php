@@ -20,6 +20,7 @@ class ContactController extends AbstractController
      * @param Request $request
      * @return Response
      */
+
     public function index(EntityManagerInterface $manager, PaginatorInterface $paginator, Request $request): Response
     {
         $contacts = $manager->getRepository(Contacts::class)->findAll();
@@ -40,6 +41,7 @@ class ContactController extends AbstractController
      * @param EntityManagerInterface $manager
      * @return Response
      */
+
     public function newContact(Request $request, EntityManagerInterface $manager):Response
     {
             $contact = new Contacts();
@@ -71,6 +73,7 @@ class ContactController extends AbstractController
      * @param EntityManagerInterface $manager
      * @return Response
      */
+    #[isGranted('ROLE_USER')]
     public function updateContact(Request $request, Contacts $contact, EntityManagerInterface $manager):Response
     {
 

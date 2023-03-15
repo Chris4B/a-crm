@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Contacts;
+use App\Entity\Firms;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -70,6 +72,11 @@ class AddContactType extends AbstractType
                 'label'=>'Numéro de téléphone',
             ])
 
+
+            ->add('id_firm', EntityType::class, [
+                'class' => Firms::class,
+                'choice_label'  => 'firm_name'
+            ])
         ;
     }
 

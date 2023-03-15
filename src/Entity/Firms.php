@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\FirmsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: FirmsRepository::class)]
@@ -38,10 +40,14 @@ class Firms
     public function __construct()
     {
         $this->created_at = new \DateTimeImmutable();
+        $this->contacts = new ArrayCollection();
     }
 
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $country = null;
+
+    #[ORM\OneToMany(mappedBy: 'id_firm', targetEntity: Contacts::class)]
+    private Collection $contacts;
 
     public function getId(): ?int
     {
@@ -140,6 +146,36 @@ class Firms
     public function setCountry(?string $country): self
     {
         $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Contacts>
+     */
+    public function getContacts(): Collection
+    {
+        return $this->contacts;
+    }
+
+    public function addContact(Contacts $contact): self
+    {
+        if (!$this->contacts->contains($contact)) {
+            $this->contacts->add($contact);
+            $contact->setIdFirm($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContact(Contacts $contact): self
+    {
+        if ($this->contacts->removeElement($contact)) {
+            // set the owning side to null (unless already changed)
+            if ($contact->getIdFirm() === $this) {
+                $contact->setIdFirm(null);
+            }
+        }
 
         return $this;
     }

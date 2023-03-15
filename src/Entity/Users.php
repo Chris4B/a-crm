@@ -46,6 +46,10 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at ;
 
+    #[ORM\OneToOne(inversedBy: 'users', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Contacts $idcontact = null;
+
     public function __construct()
     {
         $this->created_at = new \DateTimeImmutable();
@@ -177,6 +181,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCreatedAt(\DateTimeImmutable $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getIdcontact(): ?Contacts
+    {
+        return $this->idcontact;
+    }
+
+    public function setIdcontact(Contacts $idcontact): self
+    {
+        $this->idcontact = $idcontact;
 
         return $this;
     }

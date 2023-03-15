@@ -1,0 +1,21 @@
+firm_index:
+  methods: GET
+  path: entreprises
+  controller: App\Controller\FirmsController::index
+
+firm_new:
+  methods: ['GET', 'POST']
+  path: entreprises/nouveau
+  controller: App\Controller\FirmsController::addFirm
+
+
+firm_update:
+  methods: ['GET', 'POST']
+  path: entreprises/modifier/{id}
+  controller: App\Controller\FirmsController::updateFirm
+
+firm_delete:
+  methods: ['GET']
+  path: entreprises/delete/{id}
+  controller: App\Controller\FirmsController::deleteFirm
+
